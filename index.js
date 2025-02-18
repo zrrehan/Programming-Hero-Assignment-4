@@ -39,3 +39,49 @@ function validEmail(email) {
 
     return condition;
 }
+
+
+function electionResult(votes) {
+    if (!Array.isArray(votes)) {
+        return "Invalid";
+    }
+
+    let [mango, banana] = [0, 0];
+
+    for(let item of votes) {
+        if(item === "mango") {
+            mango += 1;
+        }
+        if(item === "banana") {
+            banana += 1
+        }
+    }
+
+    if(banana > mango) {
+        return "Banana";
+    } else if(mango > banana) {
+        return "Mango";
+    } else {
+        return "Draw";
+    }
+}
+
+
+function isBestFriend(f1, f2) {
+    if(Array.isArray(f1) || Array.isArray(f2) || typeof f1 !== "object" || typeof f2 !== "object") {
+        return "Invalid";
+    }
+
+    if(f1.bestFriend === f2.roll && f2.bestFriend === f1.roll) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(
+    isBestFriend(
+        { name: "hashem", roll: 1, bestFriend: 1 },
+        { name: "kashem", roll: 1, bestFriend: 1 }
+    )
+);
