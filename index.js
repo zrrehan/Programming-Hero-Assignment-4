@@ -79,9 +79,22 @@ function isBestFriend(f1, f2) {
     }
 }
 
-console.log(
-    isBestFriend(
-        { name: "hashem", roll: 1, bestFriend: 1 },
-        { name: "kashem", roll: 1, bestFriend: 1 }
-    )
-);
+function calculateWatchTime(times) {
+    let total = 0;
+    for(items of times) {
+        if(typeof items !== "number") {
+            return "Invalid"
+        }
+        total += items;
+    }
+    let hr = parseInt(total / 3600);
+    total = total % 3600;
+    let min = parseInt(total / 60);
+    let sec = total % 60;
+
+    return {
+        hour: hr,
+        minute: min, 
+        second: sec
+    };
+}
